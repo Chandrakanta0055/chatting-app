@@ -58,8 +58,7 @@ class _SignInState extends State<SignIn> {
   {
     UserCredential? userCredential;
     try {
-      userCredential = await FirebaseAuth.instance.signInWithEmailAndPassword(
-          email: email, password: password);
+      userCredential = await FirebaseAuth.instance.createUserWithEmailAndPassword(email: email, password: password);
 log(userCredential.user!.uid);
 
     }
@@ -71,6 +70,7 @@ log(userCredential.user!.uid);
     }
     if(userCredential!= null)
     {
+      print("create user start");
 
       String  uid= userCredential.user!.uid;
       UserModel newUser= new UserModel(
@@ -87,6 +87,7 @@ log(userCredential.user!.uid);
       });
 
     }
+    print("functon end");
 
   }
   

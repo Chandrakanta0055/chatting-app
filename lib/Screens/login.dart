@@ -82,7 +82,7 @@ class _LoginPageState extends State<LoginPage> {
     }
     on FirebaseAuthException catch(e)
     {
-      print("error: $e");
+      print("error: ${e.code.toString()}");
 
       show_dialog2("Error",e.code.toString());
 
